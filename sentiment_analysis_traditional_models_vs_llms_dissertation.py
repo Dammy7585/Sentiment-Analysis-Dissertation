@@ -671,6 +671,32 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 plt.show()
 
+import matplotlib.pyplot as plt
+
+# Training times for each model (in seconds)
+models = ['SVM', 'Naive Bayes', 'BERT', 'GPT-2', 'FLAN-T5']
+training_times = [120, 80, 540, 720, 600]  # Replace with actual training times
+
+# Create the bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(models, training_times, color=['blue', 'green', 'orange', 'red', 'purple'])
+
+# Add labels and title
+plt.xlabel('Models')
+plt.ylabel('Training Time (seconds)')
+plt.title('Training Time for Each Model')
+plt.xticks(rotation=15)  # Rotate model names for better readability
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Annotate the bars with the training times
+for i, time in enumerate(training_times):
+    plt.text(i, time + 50, f'{time}', ha='center', va='bottom', fontsize=15)
+
+# Display the plot
+plt.tight_layout()
+plt.show()
+    
+
 import torch
 
 def classify_text(text, models, tfidf_vectorizer, bert_tokenizer, gpt_tokenizer, flan_t5_tokenizer):
